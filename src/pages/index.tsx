@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import Card from "@mui/material/Card";
 
 function returnCharityList(element: React.ReactElement) {
   return [0, 1, 2, 3, 4, 5, 6, 7, 8].map(
@@ -31,12 +32,14 @@ const Home: NextPage = () => {
       >
         <List>
           {returnCharityList(
-            <ListItem>
-              <ListItemText
-                primary="Single-line item"
-                secondary="Secondary text"
-              />
-            </ListItem>
+            <Card sx={{ minWidth: 275 }}>
+              <ListItem>
+                <ListItemText
+                  primary="Single-line item"
+                  secondary="Secondary text"
+                />
+              </ListItem>
+            </Card>
           )}
         </List>
       </Box>
