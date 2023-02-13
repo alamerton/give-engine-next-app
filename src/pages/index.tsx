@@ -3,6 +3,19 @@ import type { NextPage } from "next";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+
+function returnCharityList(element: React.ReactElement) {
+  return [0, 1, 2, 3, 4, 5, 6, 7, 8].map(
+    // Imagine the list being mapped here is the list of charities
+    (value) =>
+      React.cloneElement(element, {
+        key: value,
+      })
+  );
+}
 
 const Home: NextPage = () => {
   return (
@@ -16,12 +29,16 @@ const Home: NextPage = () => {
           alignItems: "center",
         }}
       >
-        <Typography component="h1" color="primary">
-          Material UI v5 with Next.js in TypeScript
-        </Typography>
-        <Typography component="h2" color="secondary">
-          Boilerplate for building faster.
-        </Typography>
+        <List>
+          {returnCharityList(
+            <ListItem>
+              <ListItemText
+                primary="Single-line item"
+                secondary="Secondary text"
+              />
+            </ListItem>
+          )}
+        </List>
       </Box>
     </Container>
   );
